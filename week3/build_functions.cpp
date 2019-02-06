@@ -26,20 +26,20 @@ char  get_user_input(){
 
 }
 void to_upper_case(char &letter){
-   if(letter = "a"){
-      letter = "A";
+   if(letter = 'a'){
+      letter = 'A';
       return;
-   } else if (letter = "b"){
-      letter = "B";
+   } else if (letter = 'b'){
+      letter = 'B';
       return;
-   } else if (letter = "c"){
-      letter = "C";
+   } else if (letter = 'c'){
+      letter = 'C';
       return;
-   } else if (letter = "d"){
-      letter = "D";
+   } else if (letter = 'd'){
+      letter = 'D';
       return;
-   }else if(letter = "f"){
-      letter = "F";
+   }else if(letter = 'f'){
+      letter = 'F';
       return;
    }
 
