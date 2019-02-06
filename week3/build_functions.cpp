@@ -7,7 +7,7 @@ int main(){
   char user_input_letter;
   cout << "Type in a letter grade, lowercase or uppercase." << endl; 
   if ('0' != (user_input_letter = get_user_input())){
-    to_uppser_case(user_input_letter);
+    to_upper_case(user_input_letter);
     switch (user_input_letter){
       case 'A': cout << "Super Great job on an A!" << endl;break;
       case 'B': cout << "Great job on a B!" << endl;break;
@@ -23,7 +23,7 @@ char  get_user_input(){
     char letter;
     cout << "Enter letter: ";
     cin >> letter;
-    return;
+
 }
 void to_upper_case(char &letter){
    if(letter = "a"){

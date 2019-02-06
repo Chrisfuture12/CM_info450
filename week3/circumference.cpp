@@ -8,6 +8,7 @@ int main(){
     cout << "Enter a radius of a circle " << endl;
     cin >> value1;
     cout << "The circumfrance is: "<< calculateCircumference(value1) << endl;
+    return 0;
 }
 
 double calculateCircumference(int radius){
