@@ -10,13 +10,14 @@ class Employee {
         char last_name[255]; // Last Name   
         bool employee_type;
         int compensation = 0;
-        
+
     public:
         void set_first_name( char* in_name){ 
             strcpy(first_name, in_name);
         }
         void set_last_name( char* in_name){ strcpy(last_name, in_name);}
         void set_employee_type(bool in_p){ employee_type = in_p;}
+        
         void printEntry(){
         if (!employee_type){
             cout << last_name << ", ";
@@ -29,7 +30,7 @@ class Employee {
 };
 
 int main() {
-    const int MAX = 1;
+    const int MAX = 3;
     Employee entries[MAX];
 
     for (int x = 0; x< MAX;x++){
