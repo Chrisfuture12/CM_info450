@@ -1,8 +1,5 @@
-
-
 #include <iostream>
 using namespace std;
-
 
 class node{
   public:
@@ -11,7 +8,6 @@ class node{
     node(){
         next = NULL;
     }
-    *head = NULL;
     void insert_number(int number);
     bool contains(int number);
     void print_in_order(); 
@@ -22,14 +18,24 @@ void node::print_data(){
     cout << data << endl;
     next->print_data();
 }
-
+// Change insert number function
 void node::insert_number(int number){
-     if (next == NULL){
+    // data = 0 
+    // next = null
+    if ( number  > data ){
+        if (next == NULL){
          next = new node;
          next->data = number; 
-     }else{
-         next->insert_number(number);
-     }
+        }else{
+         next->insert_number(number); // Always start from 1st node and recurrsive
+        } 
+    } else {
+        // Number is greater than data 
+        // swap the values 
+        int temp = data;
+        data = number;
+        insert_number(temp);
+    }
 }
 
 bool node::contains(int number){ 
@@ -49,18 +55,6 @@ void node::print_in_order(){
     }
 }
 
-/* void node::traverse(int i){
-    node *t = head;
-    int c = 0;
-    while(c<= i){
-        cout << t -> data << "\t";
-        t = t ->next;
-        c++;
-    }
-} */
-
-
-
 int main(){
     node linked_list;
     linked_list.data = 0;
@@ -70,7 +64,6 @@ int main(){
     linked_list.insert_number(98);
     linked_list.insert_number(33); 
     linked_list.insert_number(55);
-//linked_list.traverse()
     linked_list.print_in_order();   
     return 0;
 }
