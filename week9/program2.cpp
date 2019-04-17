@@ -93,6 +93,37 @@ public:
     void show();
 };
 
+//{"road_vehicle": "automobile", "wheels": 4, "passengers": 2, "type": "car"}
+//{"road_vehicle": "truck", "wheels": 4, "passengers": 2, "cargo": 12000}
+
+void road_vehicle::print(){
+    if (vehicle_name == "truck"){
+        cout << "{";
+        cout << "'road_vehicles': ";
+        cout << "'truck'";
+        cout << ", ";
+        cout << "'wheels': " << wheels;
+        cout << ", ";
+        cout << "'passengers': " << passengers;
+        cout << ", ";
+        cout << "'cargo': " << cargo; 
+        cout << "}" << endl;
+    } else if (vehicle_name == "automobile"){
+        cout << "{";
+        cout << "'road_vehicles': ";
+        cout << "'automobile'";
+        cout << ", ";
+        cout << "'wheels': " << wheels;
+        cout << ", ";
+        cout << "'passengers': " << passengers;
+        cout << ", ";
+        cout << "'type': "<< "'" << style <<"'"; 
+        cout << "}" << endl;
+    } if (next != NULL){
+        next->print();
+    }
+}
+
 
 int main(){
 road_vehicle rv;
@@ -105,41 +136,59 @@ in.open("output.txt");
   while(in) {
     in.getline(str, 255);  // delim defaults to '\n'
     if (strcmp(str, "truck") == 0){
-        cout << str << "*" << endl;
-        in.getline(str,255);
+        //cout << str << "*" << endl;
+        in.getline(str,255); // Wheels
         string aar(str);
         string::size_type pos = aar.find(' '); // locate space
         string arg; 
         arg = aar.substr(pos + 1); // retrun string after space
         int i = std::stoi(arg); // parse
         t1.set_wheels(i);  
-
-        in.getline(str,255);
+        in.getline(str,255); // passengers
         string bar(str);
         pos = bar.find(' '); // locate space 
         arg = bar.substr(pos + 1); // retrun string after space
         i = std::stoi(arg); // parse
         t1.set_passengers(i);
-
-        in.getline(str,255);
+        in.getline(str,255); // cargo
         string car(str);
         pos = car.find(' '); // locate space
         arg = car.substr(pos + 1); // retrun string after space
         i = std::stoi(arg);
         t1.set_cargo(i); 
         t1.insert_vehicleT(t1.get_cargo());
-        
     } else if (strcmp(str, "automobile") == 0){
-        cout << str << "*" << endl;
-        /*in.getline(str,255);
-        c.set_wheels(str);
-        in.getline(str,255);
-        c.set_passengers(str);
-        in.getline(str,255);
-        c.set_type(str);*/
-       // c.insert_vehicleA(str);
+        //cout << str << "*" << endl;
+        in.getline(str,255); // wheels
+        string aar(str);
+        string::size_type pos = aar.find(' '); // locate space
+        string arg; 
+        arg = aar.substr(pos + 1);
+        int i = std::stoi(arg);
+        c.set_wheels(i);
+
+        in.getline(str,255); // Passengers
+        string bar(str);
+        pos = bar.find(' '); // locate space 
+        arg = bar.substr(pos + 1); // retrun string after space
+        i = std::stoi(arg); // parse
+        c.set_passengers(i);
+
+        in.getline(str,255); // Type
+        string car(str);
+        pos = car.find(' '); // locate space
+        arg = car.substr(pos + 1); // retrun string after space
+        /*if (arg == "van"){
+                c.set_type(van);
+            } else if (arg == "car"){
+                c.set_type(car);
+            } else if (arg == "wagon"){
+                c.set_type(wagon);
+            }*/
+        c.insert_vehicleA(arg);
     }
   } 
   t1.print();
+  c.print();
 return 0;
 }
