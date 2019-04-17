@@ -1,0 +1,8 @@
+automobile
+wheels: 5
+passengers: 5
+type: car
+truck
+wheels: 1
+passengers: 1
+cargo: 1000
