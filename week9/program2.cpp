@@ -99,25 +99,25 @@ public:
 void road_vehicle::print(){
     if (vehicle_name == "truck"){
         cout << "{";
-        cout << "'road_vehicles': ";
-        cout << "'truck'";
+        cout << "\"road_vehicles\": ";
+        cout << "\"truck\"";
         cout << ", ";
-        cout << "'wheels': " << wheels;
+        cout << "\"wheels\": " << wheels;
         cout << ", ";
-        cout << "'passengers': " << passengers;
+        cout << "\"passengers\": " << passengers;
         cout << ", ";
-        cout << "'cargo': " << cargo; 
+        cout << "\"cargo\": " << cargo; 
         cout << "}" << endl;
     } else if (vehicle_name == "automobile"){
         cout << "{";
-        cout << "'road_vehicles': ";
-        cout << "'automobile'";
+        cout << "\"road_vehicles\": ";
+        cout << "\"automobile\"";
         cout << ", ";
-        cout << "'wheels': " << wheels;
+        cout << "\"wheels\": " << wheels;
         cout << ", ";
-        cout << "'passengers': " << passengers;
+        cout << "\"passengers\": " << passengers;
         cout << ", ";
-        cout << "'type': "<< "'" << style <<"'"; 
+        cout << "\"type\": "<< "\"" << style <<"\""; 
         cout << "}" << endl;
     } if (next != NULL){
         next->print();
