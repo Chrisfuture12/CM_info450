@@ -9,7 +9,7 @@ class Employee {
         char first_name[255]; // First Name
         char last_name[255]; // Last Name   
         bool employee_type;
-        int compensation = 0;
+        double compensation = 0;
 
     public:
         void set_first_name( char* in_name){ 
@@ -22,6 +22,7 @@ class Employee {
         if (!employee_type){
             cout << last_name << ", ";
             cout << first_name << ": " << "Annual Compensation " << endl;
+        
         } else {
             cout << last_name << ", ";
             cout << first_name << ": " << "Hourly Compensation " << endl;

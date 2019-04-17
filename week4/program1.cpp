@@ -37,9 +37,6 @@ double calcSD(int numbers[], double mean){
     standevn  = sqrt(sigma/10);
 }
 
-
-
-
 int main(){
     int NumberArray[10];
     double mean;

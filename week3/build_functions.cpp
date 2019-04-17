@@ -5,6 +5,7 @@ char  get_user_input();
 void to_upper_case(char &letter);
 int main(){
   char user_input_letter;
+  
   cout << "Type in a letter grade, lowercase or uppercase." << endl; 
   if ('0' != (user_input_letter = get_user_input())){
     to_upper_case(user_input_letter);

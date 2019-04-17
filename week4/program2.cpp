@@ -11,7 +11,7 @@ int main(){
                         {"Marquis","Omar","Zeeshan","Omar","Zeeshan"}    
     };
     cout << "Please press enter for class list." << endl;
-    if (cin.get() == '\n')
+    if (cin.get() == '\n') // line[x] == 0 is equivelent to line[x] == '\0'
     {
         int row; 
         int col;
