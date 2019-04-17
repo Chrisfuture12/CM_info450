@@ -107,20 +107,27 @@ in.open("output.txt");
     if (strcmp(str, "truck") == 0){
         cout << str << "*" << endl;
         in.getline(str,255);
-        //string aar(str);
-        //aar.split(' ')[1];
-        //aar.substr(aar.indexOf(" ")+1);
-        //strtok (str," ,.-")+2;
-        //cout << aar << endl;
-        /*str.substr(str.indexOf(" ")+1);
-        t1.set_wheels(str);
+        string aar(str);
+        string::size_type pos = aar.find(' '); // locate space
+        string arg; 
+        arg = aar.substr(pos + 1); // retrun string after space
+        int i = std::stoi(arg); // parse
+        t1.set_wheels(i);  
+
         in.getline(str,255);
-        str.substr(str.indexOf(" ")+1);
-        t1.set_passengers(str);
+        string bar(str);
+        pos = bar.find(' '); // locate space 
+        arg = bar.substr(pos + 1); // retrun string after space
+        i = std::stoi(arg); // parse
+        t1.set_passengers(i);
+
         in.getline(str,255);
-        str.substr(str.indexOf(" ")+1);
-        t1.set_cargo(str); */
-        //t1.insert_vehicleT(t1.get_cargo());
+        string car(str);
+        pos = car.find(' '); // locate space
+        arg = car.substr(pos + 1); // retrun string after space
+        i = std::stoi(arg);
+        t1.set_cargo(i); 
+        t1.insert_vehicleT(t1.get_cargo());
         
     } else if (strcmp(str, "automobile") == 0){
         cout << str << "*" << endl;
@@ -133,5 +140,6 @@ in.open("output.txt");
        // c.insert_vehicleA(str);
     }
   } 
+  t1.print();
 return 0;
 }
