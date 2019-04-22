@@ -117,17 +117,13 @@ enum type {car, van, wagon};
 class automobile : public road_vehicle {
     enum type car_type;
 public:
-    void (type t){ 
-        car_type = t;
-    }
+    void set_type(type t){ car_type = t;}
     enum type get_type() { return car_type; }
     void show();
 };
 
-
-
 int main(){
-    road_vehicle rv;
+    //road_vehicle rv;
     automobile c;
     truck t1;
     
