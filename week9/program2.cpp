@@ -31,15 +31,15 @@ public:
         return passengers;
     }
     void show(); //not yet defined!
-    void insert_vehicleA(string instyle);
-    void insert_vehicleT(int cargo);
+    void insert_vehicleA(string instyle, int whee, int pass);
+    void insert_vehicleT(int cargo, int whee, int pass);
     void print();
 };
 
-void road_vehicle::insert_vehicleA(string instyle){
+void road_vehicle::insert_vehicleA(string instyle, int whee, int pass){
     string n = "automobile";
-    int w = get_wheels();
-    int p = get_passengers();
+    int w = whee;
+    int p = pass;
     string t = instyle;
         if (next == NULL){
             next = new road_vehicle;
@@ -48,13 +48,13 @@ void road_vehicle::insert_vehicleA(string instyle){
             next->vehicle_name = n;
             next->style = t;
         }else{
-            next->insert_vehicleA(instyle); // Always start from 1st node and recurrsive
+            next->insert_vehicleA(instyle, whee, pass); // Always start from 1st node and recurrsive
         } 
 } 
-void road_vehicle::insert_vehicleT(int cargo){
+void road_vehicle::insert_vehicleT(int cargo, int whee, int pass){
     string n = "truck";
-    int w = get_wheels();
-    int p = get_passengers();
+    int w = whee;
+    int p = pass;
     int c = cargo;
         if (next == NULL){
             next = new road_vehicle;
@@ -63,7 +63,7 @@ void road_vehicle::insert_vehicleT(int cargo){
             next->cargo = c;
             next->vehicle_name = n;
         }else{
-            next->insert_vehicleT(cargo); // Always start from 1st node and recurrsive
+            next->insert_vehicleT(cargo, whee, pass); // Always start from 1st node and recurrsive
         } 
 }
 
@@ -143,12 +143,14 @@ in.open("output.txt");
         string arg; 
         arg = aar.substr(pos + 1); // retrun string after space
         int i = std::stoi(arg); // parse
+        int wheels = i;
         t1.set_wheels(i);  
         in.getline(str,255); // passengers
         string bar(str);
         pos = bar.find(' '); // locate space 
         arg = bar.substr(pos + 1); // retrun string after space
         i = std::stoi(arg); // parse
+        int passengers = i;
         t1.set_passengers(i);
         in.getline(str,255); // cargo
         string car(str);
@@ -156,7 +158,7 @@ in.open("output.txt");
         arg = car.substr(pos + 1); // retrun string after space
         i = std::stoi(arg);
         t1.set_cargo(i); 
-        t1.insert_vehicleT(t1.get_cargo());
+        t1.insert_vehicleT(t1.get_cargo(), wheels, passengers);
     } else if (strcmp(str, "automobile") == 0){
         //cout << str << "*" << endl;
         in.getline(str,255); // wheels
@@ -165,6 +167,7 @@ in.open("output.txt");
         string arg; 
         arg = aar.substr(pos + 1);
         int i = std::stoi(arg);
+        int wheels = i;
         c.set_wheels(i);
 
         in.getline(str,255); // Passengers
@@ -172,6 +175,7 @@ in.open("output.txt");
         pos = bar.find(' '); // locate space 
         arg = bar.substr(pos + 1); // retrun string after space
         i = std::stoi(arg); // parse
+        int passengers = i;
         c.set_passengers(i);
 
         in.getline(str,255); // Type
@@ -185,7 +189,7 @@ in.open("output.txt");
             } else if (arg == "wagon"){
                 c.set_type(wagon);
             }*/
-        c.insert_vehicleA(arg);
+        c.insert_vehicleA(arg, wheels, passengers);
     }
   } 
   t1.print();

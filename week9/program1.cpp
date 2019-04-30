@@ -32,15 +32,15 @@ public:
         return passengers;
     }
     void show(); //not yet defined!
-    void insert_vehicleA(string instyle);
-    void insert_vehicleT(int cargo);
+    void insert_vehicleA(string instyle, int whee, int pass);
+    void insert_vehicleT(int cargo, int whee, int pass);
     void print();
 };
 
-void road_vehicle::insert_vehicleA(string instyle){
+void road_vehicle::insert_vehicleA(string instyle, int whee, int pass){
     string n = "automobile";
-    int w = get_wheels();
-    int p = get_passengers();
+    int w = whee;
+    int p = pass;
     string t = instyle;
         if (next == NULL){
             next = new road_vehicle;
@@ -49,13 +49,13 @@ void road_vehicle::insert_vehicleA(string instyle){
             next->vehicle_name = n;
             next->style = t;
         }else{
-            next->insert_vehicleA(instyle); // Always start from 1st node and recurrsive
+            next->insert_vehicleA(instyle, whee, pass); // Always start from 1st node and recurrsive
         } 
 } 
-void road_vehicle::insert_vehicleT(int cargo){
+void road_vehicle::insert_vehicleT(int cargo, int whee, int pass){
     string n = "truck";
-    int w = get_wheels();
-    int p = get_passengers();
+    int w = whee;
+    int p = pass;
     int c = cargo;
         if (next == NULL){
             next = new road_vehicle;
@@ -64,7 +64,7 @@ void road_vehicle::insert_vehicleT(int cargo){
             next->cargo = c;
             next->vehicle_name = n;
         }else{
-            next->insert_vehicleT(cargo); // Always start from 1st node and recurrsive
+            next->insert_vehicleT(cargo, whee, pass); // Always start from 1st node and recurrsive
         } 
 }
 
@@ -153,7 +153,7 @@ int main(){
             } else if (type == "wagon"){
                 c.set_type(wagon);
             }
-            c.insert_vehicleA(type);
+            c.insert_vehicleA(type, wheel, passengers);
         } else if (strcmp(myvalue, "truck") == 0){
             int wheel;
             int passengers;
@@ -167,7 +167,7 @@ int main(){
             cout << "How much cargo (in pounds) can this vehicle hold?" << endl;
             cin >> cargo;
             t1.set_cargo(cargo);
-            t1.insert_vehicleT(t1.get_cargo());
+            t1.insert_vehicleT(cargo, wheel, passengers);
         } else {
             cout << "Wrong entry" << endl;
             break;
